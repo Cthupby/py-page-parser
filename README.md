@@ -1,4 +1,5 @@
-# Page parser - Тестовое задние для компании Пикассо
+# Page parser 
+### Тестовое задние для компании Пикассо
 
 ```
 В качестве тестового задания вам предлагается написать парсер страницы,
@@ -20,3 +21,4 @@ https://api.domainsdb.info/v1/domains/search?domain=НАЙДЕННЫЙ_URL
 3. Server env: [Docker](https://www.docker.com/), [Gunicorn](https://gunicorn.org/), [Nginx](https://nginx.org/)
 4. Parsing: [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
 5. Telegram: [Aiogram](https://docs.aiogram.dev/en/latest/)
+
