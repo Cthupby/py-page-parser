@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Link
+from .models import Page, Link
 
 
 class LinkSerializer(serializers.ModelSerializer):
@@ -14,3 +14,9 @@ class LinkSerializer(serializers.ModelSerializer):
 
     def get_links(self, link):
         return Link.objects.all()
+
+
+class PageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Page
+        fields = ['page']

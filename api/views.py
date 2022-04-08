@@ -1,6 +1,6 @@
 from rest_framework import generics
-from .serializers import LinkSerializer
-from .models import Link
+from .serializers import PageSerializer, LinkSerializer
+from .models import Page, Link
 
 
 class LinkList(generics.ListCreateAPIView):
@@ -9,6 +9,17 @@ class LinkList(generics.ListCreateAPIView):
     '''
     queryset = Link.objects.all()
     serializer_class = LinkSerializer
+
+    def perform_create(self, serializer):
+        serializer.save()
+
+
+class PageList(generics.ListCreateAPIView):
+    '''
+    API endpoint that shows all pages
+    '''
+    queryset = Page.objects.all()
+    serializer_class = PageSerializer
 
     def perform_create(self, serializer):
         serializer.save()
