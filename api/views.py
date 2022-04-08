@@ -2,6 +2,8 @@ from rest_framework import generics
 from .serializers import PageSerializer, LinkSerializer
 from .models import Page, Link
 
+from .parser import get_links
+
 
 class LinkList(generics.ListCreateAPIView):
     '''
@@ -22,4 +24,7 @@ class PageList(generics.ListCreateAPIView):
     serializer_class = PageSerializer
 
     def perform_create(self, serializer):
+        for link in get_links(serializer.validated_data['page']):
+            url = Link.objects.bulk_create([Link(find_url=link)])
+            serializer.validated_data['find_urls'] = url
         serializer.save()

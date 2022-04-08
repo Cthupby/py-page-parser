@@ -3,7 +3,6 @@ from .models import Page, Link
 
 
 class LinkSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Link
         fields = [
@@ -19,4 +18,4 @@ class LinkSerializer(serializers.ModelSerializer):
 class PageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Page
-        fields = ['page']
+        fields = ['page', 'find_urls']
