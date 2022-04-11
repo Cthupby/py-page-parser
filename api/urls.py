@@ -3,6 +3,8 @@ from . import views
 
 
 urlpatterns = [
-    path('links/', views.LinkList.as_view()),
-    path('pages/', views.PageList.as_view()),
+    path('api/pages/', views.PageList.as_view()),
+    path('api/pages/<int:pk>', views.PageRetrieveUpdateDestroy.as_view()),
+    path('api/links/', views.LinkList.as_view()),
+    path('api/links/<int:pk>', views.LinkRetrieveUpdateDestroy.as_view()),
 ]
