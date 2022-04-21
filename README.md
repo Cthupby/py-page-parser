@@ -16,9 +16,6 @@ https://api.domainsdb.info/v1/domains/search?domain=НАЙДЕННЫЙ_URL
 
 ## Технологии проекта:
 
-1. Web-framework: [Django Rest Framework](https://www.django-rest-framework.org/)
+1. Web-framework:  [Django Rest Framework](https://www.django-rest-framework.org/), [Aiohttp](https://docs.aiohttp.org/en/stable/)
 2. Database: [PostgreSQL](https://www.postgresql.org/)
-3. Server env: [Docker](https://www.docker.com/), [Gunicorn](https://gunicorn.org/), [Nginx](https://nginx.org/)
 4. Parsing: [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
-5. Telegram: [Aiogram](https://docs.aiogram.dev/en/latest/)
-
