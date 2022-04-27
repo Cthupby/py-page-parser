@@ -3,22 +3,28 @@ from .models import Page, Link
 
 
 class LinkSerializer(serializers.ModelSerializer):
+    '''
+    Serializer for the link that the parser will find on the page
+    '''
     class Meta:
         model = Link
         fields = [
-            'find_url', 'domain', 'create_date', 'update_date',
+            'id', 'find_url', 'domain', 'create_date', 'update_date',
             'country', 'is_dead', 'a', 'ns', 'cname', 'mx', 'txt'
             ]
 
         read_only_fields = [
-            'domain', 'create_date', 'update_date', 'country',
+            'id', 'domain', 'create_date', 'update_date', 'country',
             'is_dead', 'a', 'ns', 'cname', 'mx', 'txt'
             ]
 
 
 class PageSerializer(serializers.ModelSerializer):
+    '''
+    Page serializer for parsing to find urls
+    '''
     class Meta:
         model = Page
-        fields = ['page', 'find_urls']
+        fields = ['id', 'page', 'find_urls']
 
-        read_only_fields = ['find_urls']
+        read_only_fields = ['id', 'find_urls']
