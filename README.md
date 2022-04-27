@@ -1,4 +1,4 @@
-# Page parser 
+# Python Page parser 
 ### Тестовое задние для компании Пикассо
 
 ```
@@ -19,3 +19,15 @@ https://api.domainsdb.info/v1/domains/search?domain=НАЙДЕННЫЙ_URL
 1. Web-framework:  [Django Rest Framework](https://www.django-rest-framework.org/), [Aiohttp](https://docs.aiohttp.org/en/stable/)
 2. Database: [PostgreSQL](https://www.postgresql.org/)
 4. Parsing: [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+
+## Установка и использование
+
+1. Необходимо скачать проект  
+2. Создать и активировать виртуальное окружение  
+   ```python -m virualenv venv```  
+   ```source ./venv/bin/activate```
+3. Установить рекомендуемые библиотеки  
+  ```pip install -r requirements.txt```
+4. Запустить миграции базы данных и запустить проект  
+  ```python manage.py migrate```  
+  ```python manage.py runserver 5000```  
