@@ -3,23 +3,13 @@ from bs4 import BeautifulSoup
 from urllib.parse import urlparse
 
 
-# url = "https://losst.ru"
-
-
 def get_links(url):
-    '''
-    Url of document for a parsing
-    '''
+    ''' Get url of the page for parsing '''
     r = requests.get(url=url)
-    '''
-    Making soup
-    '''
     soup = BeautifulSoup(r.text, "lxml")
-    ''' To store events data '''
+    ''' List to collect urls which was found on page '''
     finded_url = []
-    '''
-    To find all links in page
-    '''
+    ''' To find urls in page '''
     links = soup.find_all("a", href=True)
     for link in links:
         if not link['href'].find('https://'):
