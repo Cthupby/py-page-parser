@@ -16,9 +16,9 @@ https://api.domainsdb.info/v1/domains/search?domain=НАЙДЕННЫЙ_URL
 
 ## Технологии проекта:
 
-1. Web-framework:  [Django Rest Framework](https://www.django-rest-framework.org/), [Aiohttp](https://docs.aiohttp.org/en/stable/)
+1. Web-framework: [Django Rest Framework](https://www.django-rest-framework.org/), [Aiohttp](https://docs.aiohttp.org/en/stable/)
 2. Database: [PostgreSQL](https://www.postgresql.org/)
-4. Parsing: [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+3. Parsing: [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
 
 ## Установка и использование
 
@@ -30,4 +30,17 @@ https://api.domainsdb.info/v1/domains/search?domain=НАЙДЕННЫЙ_URL
   ```pip install -r requirements.txt```
 4. Запустить миграции базы данных и запустить проект  
   ```python manage.py migrate```  
-  ```python manage.py runserver 5000```  
+  ```python manage.py runserver```  
+
+## Реализация
+
+> Реализация серверной части проекта - https://pypageparser.herokuapp.com/
+
+1. Эндпоинт для выдачи и добавления web страниц  
+   ```https://pypageparser.herokuapp.com/api/pages/```  
+2. Эндпоинт для выдачи url найденных на конкретной web странице  
+   ```https://pypageparser.herokuapp.com/api/pages/<int:pk>/links/```  
+3. Эндпоинт для редактирования и удаления конкретной web страницы  
+   ```https://pypageparser.herokuapp.com/api/pages/<int:pk>/```  
+4. Эндпоинт для редактирования и удаления url  
+   ```https://pypageparser.herokuapp.com/api/links/<int:pk>/```  
