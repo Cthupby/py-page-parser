@@ -51,7 +51,7 @@ class PageCreateList(generics.ListCreateAPIView):
         domain_info.clear()
         try:
             serializer.save(page=page.replace("www.", ""), find_urls=find_urls)
-        except:
+        except ValidationError:
             raise ValidationError('This page already exist in this table.')
 
 
@@ -63,8 +63,8 @@ class PageLinksList(generics.ListCreateAPIView):
     ordering_fields = ['domain', 'country', 'create_date', 'update_date']
 
     def get_queryset(self):
-        page = self.kwargs['page']
-        return Page.objects.get(page__icontains=page).find_urls.all()
+        page = self.kwargs['pk']
+        return Page.objects.get(id=page).find_urls.all()
 
     def perform_create(self, serializer):
         serializer.save()
@@ -74,15 +74,6 @@ class PageRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     ''' API endpoint for editing or deleting a page '''
     queryset = Page.objects.all()
     serializer_class = PageSerializer
-
-
-class LinkList(generics.ListCreateAPIView):
-    ''' API endpoint that return all links and adding new ones '''
-    queryset = Link.objects.all()
-    serializer_class = LinkSerializer
-    filter_backends = [filters.SearchFilter, filters.OrderingFilter]
-    search_fields = ['domain', 'country', 'is_dead', 'a', 'ns', 'cname', 'mx', 'txt']
-    ordering_fields = ['domain', 'country', 'create_date', 'update_date']
 
     def perform_create(self, serializer):
         serializer.save()
